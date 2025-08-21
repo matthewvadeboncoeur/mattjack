@@ -6,12 +6,12 @@ const jwt = require('jsonwebtoken')
 
 const signup = async (req, res) => {
     try {
-        const { username, password, balance } = req.body
+        const { username, password } = req.body
         const passwordHash = await bcrypt.hash(password, 10)
         const newUser = new User({
             username,
             passwordHash,
-            balance
+            balance: 2000
         })
         await newUser.save()
         const payload = { username :newUser.username }
@@ -26,6 +26,24 @@ const signup = async (req, res) => {
 }
 
 
+const login = async (req, res) => {
+    try {
+        const { username, password } = req.body
+        const existingUser = await User.findOne({ username: username }).select('+passwordHash')
+        if (!existingUser)
+            return res.status(401).json({error: 'Wrong username or password'})
+        const match = await bcrypt.compare(password, existingUser.passwordHash)
+        if (!match)
+            return res.status(401).json({error: 'Wrong username or password'})
+        const payload = {username: username}
+        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '20m'})
+        res.status(201).json({ message: 'User signed in successfully', accessToken })
+    } catch (err) {
+        res.status(500).json({ error: 'Server Error'})
+    }
+}
 
 
-module.exports = { signup }
+
+
+module.exports = { signup, login }

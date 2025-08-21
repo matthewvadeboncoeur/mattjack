@@ -1,13 +1,13 @@
 // index.js
 
-require('dotenv').config()
+require('dotenv').config({ path: __dirname + '/../.env' })
 const express = require('express')
 const cors = require('cors')
 const app = express()
 app.use(express.json())
 const connectDB = require('./config/db')
 const authRoutes = require('./routes/authRoutes')
-app.use(cors());
+app.use(cors())
 app.use('/auth', authRoutes)
 
 connectDB().then(() => {
