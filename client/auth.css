@@ -1,0 +1,104 @@
+/* auth.js */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth {
+    width: 65vw;
+    height: 70vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.3);
+}
+
+.auth-buttons {
+    display: flex;
+    width: 40vw;
+    height: 12vh;
+    justify-content: space-between;
+}
+
+.auth-buttons button {
+    font-size: 2rem;
+    width: 20vw;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.auth-buttons button:hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 2.3rem;
+}
+
+#signUp {
+    background-color: rgb(121, 119, 240);
+}
+
+#logIn {
+    background-color: rgb(197, 196, 246);
+}
+
+.hidden {
+    display: none;
+}
+
+#logInDiv {
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+#signUpDiv {
+    width: 80%;
+    height: 80%;
+    position: relative;
+}
+
+#signUpDiv input {
+    width: 70%;
+    height: 40px;
+    font-size: 2rem;
+}
+
+#logInDiv input {
+    width: 70%;
+    height: 40px;
+    font-size: 2rem;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+img:hover {
+    transition: all 0.3s ease;
+    width: 55px;
+    height: auto;
+}
+
