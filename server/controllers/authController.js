@@ -15,7 +15,7 @@ const signup = async (req, res) => {
         })
         await newUser.save()
         const payload = { username :newUser.username }
-        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '20m'})
+        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
 
         res.status(201).json({ message: 'User successfully created', accessToken })
     } catch (err) {
@@ -36,7 +36,7 @@ const login = async (req, res) => {
         if (!match)
             return res.status(401).json({error: 'Wrong username or password'})
         const payload = {username: username}
-        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '20m'})
+        const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
         res.status(201).json({ message: 'User signed in successfully', accessToken })
     } catch (err) {
         res.status(500).json({ error: 'Server Error'})

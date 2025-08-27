@@ -9,6 +9,10 @@ const connectDB = require('./config/db')
 const authRoutes = require('./routes/authRoutes')
 app.use(cors())
 app.use('/auth', authRoutes)
+const userRoutes = require('./routes/userRoutes')
+app.use('/user', userRoutes)
+const gameRoutes = require('./routes/gameRoutes')
+app.use('/game', gameRoutes)
 
 connectDB().then(() => {
     const PORT = process.env.PORT || 3000
