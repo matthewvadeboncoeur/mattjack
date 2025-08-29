@@ -9,6 +9,7 @@ const gameSessions = {}
 function createDeck() {
     const suits = ['diamonds', 'spades', 'clubs', 'hearts']
     const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace']
+    // const values = ['king', 'ace']
     let deck = []
     // 4 deck DECK
     for (let i = 0; i < 4; i++) {
@@ -37,7 +38,7 @@ const deal = async (req, res) => {
         console.log(gameSessions[username])
         res.json({
             playerHand,
-            dealerHand: [dealerHand[0], { hidden: true }],
+            dealerHand,
             balance: user.balance
         })
     } catch (err) {
@@ -50,7 +51,7 @@ const hit = async (req, res) => {
     const session = gameSessions[username]
     if (!session) return res.status(400).json({ error : 'No active game' })
     session.playerHand.push(session.deck.pop())
-    res.json({ playerHand: session.playerHand })
+    res.json({ playerHand: session.playerHand, dealerHand: session.dealerHand })
 }
 
 const stand = async (req, res) => {
@@ -86,8 +87,26 @@ function calculateHandValue(hand) {
     return total;
 }
 
+const decide = async (req, res) => {
+    const { username } = req.user
+    const session = gameSessions[username]
+    if (!session) return res.status(400).json({ error : 'No active game' })
+    const dealerTotal = calculateHandValue(session.dealerHand)
+    res.json({ playerHand: session.playerHand, dealerTotal})
+}
+
+const updateBalance = async (req, res) => {
+    const { username } = req.user
+    const { bet } = req.body
+    const user = await User.findOne({ username })
+    if (!user) return res.status(404).json({ error: 'User not found' })
+    user.balance += Math.round(bet)
+    await user.save()
+    res.sendStatus(200)
+}
 
 
 
 
-module.exports = { deal, hit, stand }
+
+module.exports = { deal, hit, stand, decide, updateBalance }
