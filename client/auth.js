@@ -63,7 +63,7 @@ window.addEventListener("load", function () {
         const username = document.getElementById('usernameS')
         const password = document.getElementById('passwordS')
         if (!username.value || !password.value) return
-        fetch('http://localhost:3000/auth/signup', {
+        fetch('https://mattjack.onrender.com/auth/signup', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -91,7 +91,7 @@ window.addEventListener("load", function () {
         const username = document.getElementById('usernameL')
         const password = document.getElementById('passwordL')
         if (!username.value || !password.value) return
-        fetch('http://localhost:3000/auth/login', {
+        fetch('https://mattjack.onrender.com/auth/login', {
             method: 'post',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
