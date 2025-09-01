@@ -35,7 +35,6 @@ const deal = async (req, res) => {
         const playerHand = [deck.pop(), deck.pop()]
         const dealerHand = [deck.pop(), deck.pop()]
         gameSessions[username] = {deck, playerHand, dealerHand, bet}
-        console.log(gameSessions[username].playerHand)
         console.log(gameSessions[username].dealerHand)
         res.json({
             playerHand,
