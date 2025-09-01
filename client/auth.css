@@ -87,7 +87,7 @@ body {
     gap: 5vh;
 }
 
-img {
+.next {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -100,5 +100,14 @@ img:hover {
     transition: all 0.3s ease;
     width: 55px;
     height: auto;
+}
+
+.back {
+    position: absolute;
+    bottom: 20px;
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    transform: rotate(180deg); 
 }
 

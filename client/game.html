@@ -8,20 +8,27 @@
 </head>
 <body>
     <div class="fullscreenDiv">
-        <div class="gameContainer">
-            <div class="balance">Balance: $2000</div>
-            <div class="bets">
-                <button>2000</button>
-                <button>500</button>
-                <button>100</button>
-                <button>25</button>
-                <button>5</button>
-                <button>1</button>
+        <div class="gameContainer" id="gameContainer">
+            <div class="balance" id="balance"></div>
+            <div class="cards" id="cards">
+                <div class="dealerDiv" id="dealerDiv">
+                </div>
+                <div class="playerDiv" id="playerDiv">
+                </div>
+
+            </div>
+            <div class="bets" id="bets">
+                <button id="2000">2000</button>
+                <button id="500">500</button>
+                <button id="100">100</button>
+                <button id="25">25</button>
+                <button id="1">1</button>
                 <button id="placeBet">Place Bet</button>
-                <p class="currentBet">Current Bet: $100</p>
+                <button id="clearBet">Clear Bet</button>
+                <p class="currentBet" id="currentBet">Current Bet: $0</p>
             </div>
         </div>
     </div>
-    <script src="./script.js"></script>
+    <script type="module" src="./script.js"></script>
 </body>
 </html>

@@ -22,7 +22,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: rgb(255, 255, 255, 0.5); */
     width: min(93vw, 160vh);
     height: min(65vw, 100vh);
     max-height: 100vh;
@@ -30,12 +29,10 @@
 
 .balance {
     font-size: min(4vw, 5vh);
-    background-color: red;
     margin-top: 2%;
 }
 
 .bets {
-    background-color: blueviolet;
     margin-bottom: 2%;
     display: flex;
     gap: min(2.5vw, 2.5vh);
@@ -57,8 +54,80 @@
 
 .currentBet {
     font-size: min(3vw, 4vh);
-    padding-left: 6%;
+    padding-left: 15%;
 }
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 14%;
+    height: 50%;
+}
+
+.cards img {
+    height: min(15vw, 15vh);
+    width: auto;
+}
+
+.dealerDiv {
+    display: flex;
+    margin-left: 38%;
+    gap: 2%
+}
+
+.dealerDiv p {
+    font-size: min(4vw, 5vh);
+    font-family: sans-serif;
+}
+
+.playerDiv {
+    display: flex;
+    margin-left: 38%;
+    gap: 2%;
+}
+
+.playerDiv p {
+    font-size: min(4vw, 5vh);
+    font-family: sans-serif;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.remove {
+    display: none;
+}
+
+.logic {
+    margin-bottom: 2%;
+    display: flex;
+    gap: min(2.5vw, 2.5vh);
+    align-items: center;
+    padding-left: 36%;
+}
+
+.logic button {
+    font-size: min(3vw, 4vh);
+    border-radius: 10px;
+    font-family: 'sans-serif';
+    width: min(7vw, 12vh);
+}
+
+.red {
+    background-color: red;
+    cursor: pointer;
+}
+
+.green {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+
+
 
 
 
