@@ -16,3 +16,8 @@ This projects exists as a way to showcase my skills using different technologies
 - Node.js & Express
 - MongoDB with Mongoose
 
+<img width="1472" height="857" alt="image" src="https://github.com/user-attachments/assets/c7ab0da7-0d0f-4d3d-b170-6615b33f5c9a" />
+
+<img width="1470" height="861" alt="image" src="https://github.com/user-attachments/assets/d082cafa-feca-4bca-a2d6-afe279acc2d0" />
+
+
