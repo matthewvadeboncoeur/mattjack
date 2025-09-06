@@ -1,4 +1,4 @@
-mattjack.netlify.app
+[mattjack.netlify.app](mattjack.netlify.app)
 Due to hosting my server on render free tier, please allow up to 2 minutes before 
 interacting with my website
 
