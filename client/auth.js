@@ -91,29 +91,34 @@ window.addEventListener("load", function () {
         const username = document.getElementById('usernameL')
         const password = document.getElementById('passwordL')
         if (!username.value || !password.value) return
-        fetch('https://mattjack.onrender.com/auth/login', {
-            method: 'post',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                username: username.value,
-                password: password.value,
-                balance: 2000
+        try {
+            fetch('https://mattjack.onrender.com/auth/login', {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value,
+                    balance: 2000
+                })
             })
-        })
-        .then(async (response) => {
-            const data = await response.json()
-            if (response.ok) {
-                localStorage.setItem('auth', JSON.stringify({
-                    accessToken: data.accessToken,
-                    username: username.value
-                }))
-                window.location.href = 'game.html'
-            } else {
-                alert(data.error)
-                username.value = ''
-                password.value = ''
-            }
-        })
+            .then(async (response) => {
+                const data = await response.json()
+                if (response.ok) {
+                    localStorage.setItem('auth', JSON.stringify({
+                        accessToken: data.accessToken,
+                        username: username.value
+                    }))
+                    window.location.href = 'game.html'
+                } else {
+                    alert(data.error)
+                    username.value = ''
+                    password.value = ''
+                }
+            })
+        } catch (err) {
+            alert("Server is waking up! Please try again shortly")
+        }
+
     }
 
 });
